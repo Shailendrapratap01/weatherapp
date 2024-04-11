@@ -61,7 +61,7 @@ let getWeather = async (city)=>{
     }
     else{
         weatherInfo.style.display = "none";
-        notFound.style.display = "flex";
+        displayError.style.display = "flex";
     }
     console.log(data);
     console.log(res.status);
