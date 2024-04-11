@@ -9,12 +9,11 @@ body{
     background-color: #293251;
 }
 #main-container{
-    padding: 30px;
+    padding: 100px 30px;
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-size:cover;
     background-repeat: no-repeat;
@@ -48,7 +47,7 @@ body{
     /* gap: 10px; */
     background-color: white;
     margin: 40px auto;
-    width: 20%;
+    width: 30%;
     border-radius: .5rem;
     overflow: hidden;
 }
@@ -111,10 +110,70 @@ span{
 }
 
 @media only screen and (min-width: 320px) and (max-width: 768px){
+    #main-container{
+        padding: 40px 10px;
+    }
     #weather-container{
         width: 95%;
     }
     #search-bar{
         width: 95%;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    #weather-container{
+        width: 50%;
+    }
+    #search-bar{
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 2560px){
+    #temperature{
+        font-size: 5rem;
+        font-weight: 600;
+    }
+    span{
+        font-size: 3rem;
+    }
+    #weather-desc{
+        font-size: 3rem;
+    }
+    #location{
+        font-size: 2rem;
+    }
+    #not-found i{
+        font-size: 6rem;
+    }
+    #not-found p{
+        font-size: 2rem;
+    }
+    #weather-info{
+        gap: 30px;
+        padding-bottom: 40px;
+        margin-bottom: 100px;
+    }
+    #weather-img{
+        width: 40%;
+    }
+    #weather-img img{
+        width: 100%;
+    }
+    #heading {
+        font-size: 2.5rem;
+        padding: 20px;
+    }
+    #search-bar{
+    }
+    #search-bar input{
+        font-size: 2rem;
+        padding: 0px 10px ;
+    }
+    #search-bar button{
+        font-size: 2.3rem;
+        padding: 10px 15px 15px;
+    }
+    #not-found{
+        margin-bottom: 80px;
     }
 }
