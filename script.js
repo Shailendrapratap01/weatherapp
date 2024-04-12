@@ -9,21 +9,18 @@ const displayError = document.getElementById("not-found");
 const loader = document.getElementById("loader")
 const parentContainer = document.getElementById("main-container")
 
-
 const url = "https://api.openweathermap.org/data/2.5/weather?units=metric" ;
 const apiKey = "82005d27a116c2880c8f0fcb866998a0" ;
 let city;
 
 window.addEventListener("load", async () => {
     console.log("page is fully loaded");
-    navigator.geolocation.getCurrentPosition(gotLocation, failedToGetLocation)
+    navigator.geolocation.getCurrentPosition(getLocation, failedToGetLocation)
 });
 
-const gotLocation = async (location)=>{
+const getLocation = async (location)=>{
     const lat = location.coords.latitude;
     const lon = location.coords.longitude;
-    // console.log(lat, lon);
-    // city =  await getCurrentLocationWeather();
     getWeather(lat, lon);
 }
 
@@ -33,17 +30,12 @@ const failedToGetLocation = ()=>{
     loader.style.display = "none";
 }
 
-// const getCurrentLocationWeather = async ()=>{
-//     const res = await fetch(url + `&q=${city}` + `&appid=${apiKey}`);
-//     let data = await res.json();
-//     console.log(data.name)
-//     return data.name;
-// }
 const getCoordinates = async ()=>{
     const url = "http://api.openweathermap.org/geo/1.0/direct?limit=1";
-    const res = await fetch(url + `&q=${city}` +`&appid=${apiKey}`);
 
+    const res = await fetch(url + `&q=${city}` +`&appid=${apiKey}`);
     let data = await res.json();
+
     if(data.length > 0){
         const lat = data[0].lat;
         const lon = data[0].lon;
@@ -52,7 +44,7 @@ const getCoordinates = async ()=>{
     else{
         weatherCard.style.display = "none";
         displayError.style.display = "flex";
-
+        parentContainer.style.backgroundImage = "url(./images/default.png)";
     }
 }
 
@@ -87,14 +79,12 @@ let getWeather = async (lat, lon)=>{
         const imgId = data.weather[0].description;
         const imgName = imgId.split(" ").join("_")
         parentContainer.style.backgroundImage = `url(./images/${imgName}.jpg)`;
-        console.log("2")
-        
     }
     else{
         weatherCard.style.display = "none";
         displayError.style.display = "flex";
-        loader.style.display = "block";
+        loader.style.display = "none";
+        parentContainer.style.backgroundImage = "url(./images/default.png)";
     }
-    console.log(data);
     console.log(res.status);
 }

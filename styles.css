@@ -136,6 +136,9 @@ span{
     span{
         font-size: 3rem;
     }
+    #weather-container{
+        margin-top: 50px;
+    }
     #weather-desc{
         font-size: 3rem;
     }
@@ -151,7 +154,7 @@ span{
     #weather-info{
         gap: 30px;
         padding-bottom: 40px;
-        margin-bottom: 100px;
+        margin-bottom: 90px;
     }
     #weather-img{
         width: 40%;
@@ -163,15 +166,13 @@ span{
         font-size: 2.5rem;
         padding: 20px;
     }
-    #search-bar{
-    }
     #search-bar input{
         font-size: 2rem;
         padding: 0px 10px ;
     }
     #search-bar button{
         font-size: 2.3rem;
-        padding: 10px 15px 15px;
+        padding: 15px 25px;
     }
     #not-found{
         margin-bottom: 80px;
