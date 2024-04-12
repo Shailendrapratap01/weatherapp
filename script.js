@@ -23,7 +23,7 @@ const getLocation = async (location) => {
 };
 
 const failedToGetLocation = () => {
-	showOrHideContent("none", "none", "flex");
+  showOrHideContent("none", "none", "flex");
 };
 
 const fetchData = async (url) => {
@@ -53,7 +53,7 @@ const getCoordinates = async (city) => {
 };
 
 searchBtn.addEventListener("click", async () => {
-  if (searchInput.value == "") {
+  if (searchInput.value === "") {
     showOrHideContent("none", "none", "flex");
   } else {
     city = searchInput.value;
@@ -68,13 +68,13 @@ searchBtn.addEventListener("click", async () => {
 });
 
 const getWeather = async (lat, lon) => {
-	showOrHideContent("block", "none", "none");
+  showOrHideContent("block", "none", "none");
   const { res, data } = await fetchData(
     `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`
   );
   showOrHideContent("none", "flex", "none");
 
-  if (res.status == 200) {
+  if (res.status === 200) {
     showOrHideContent("none", "flex", "none");
 
     const temp = Math.floor(data.main.temp);
