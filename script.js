@@ -17,13 +17,13 @@ window.addEventListener("load", async () => {
 });
 
 const getLocation = async (location) => {
-  const currentLat = location.coords.latitude;
-  const currentlLon = location.coords.longitude;
-  getWeather(currentLat, currentlLon);
+  const currentLatitude = location.coords.latitude;
+  const currentLongitude = location.coords.longitude;
+  getWeather(currentLatitude, currentLongitude);
 };
 
 const failedToGetLocation = () => {
-  Dispalay("none", "none", "flex");
+	showOrHideContent("none", "none", "flex");
 };
 
 const fetchData = async (url) => {
@@ -32,7 +32,7 @@ const fetchData = async (url) => {
   return { res, data };
 };
 
-const Dispalay = (loaderDisplay, weatherCardDisplay, errorDisplay) => {
+const showOrHideContent = (loaderDisplay, weatherCardDisplay, errorDisplay) => {
   loader.style.display = loaderDisplay;
   weatherCard.style.display = weatherCardDisplay;
   error.style.display = errorDisplay;
@@ -47,14 +47,14 @@ const getCoordinates = async (city) => {
     const lon = data[0].lon;
     return { lat, lon };
   } else {
-    Dispalay("none", "none", "flex");
+    showOrHideContent("none", "none", "flex");
     bodyContainer.style.backgroundImage = "url(./images/default.png)";
   }
 };
 
 searchBtn.addEventListener("click", async () => {
   if (searchInput.value == "") {
-    Dispalay("none", "none", "flex");
+    showOrHideContent("none", "none", "flex");
   } else {
     city = searchInput.value;
     searchInput.value = "";
@@ -68,14 +68,14 @@ searchBtn.addEventListener("click", async () => {
 });
 
 const getWeather = async (lat, lon) => {
-  Dispalay("block", "none", "none");
+	showOrHideContent("block", "none", "none");
   const { res, data } = await fetchData(
     `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`
   );
-  Dispalay("none", "flex", "none");
+  showOrHideContent("none", "flex", "none");
 
   if (res.status == 200) {
-    Dispalay("none", "flex", "none");
+    showOrHideContent("none", "flex", "none");
 
     const temp = Math.floor(data.main.temp);
     temperature.innerText = temp + "° c";
@@ -89,7 +89,7 @@ const getWeather = async (lat, lon) => {
     const imgName = imgId.split(" ").join("_");
     bodyContainer.style.backgroundImage = `url(./images/${imgName}.jpg)`;
   } else {
-    Dispalay("none", "none", "flex");
+    showOrHideContent("none", "none", "flex");
     bodyContainer.style.backgroundImage = "url(./images/default.png)";
   }
 };
