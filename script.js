@@ -53,6 +53,7 @@ const getCoordinates = async (city) => {
 };
 
 searchBtn.addEventListener("click", async () => {
+  showOrHideContent("block", "none", "none");
   if (searchInput.value === "") {
     showOrHideContent("none", "none", "flex");
   } else {
@@ -68,11 +69,9 @@ searchBtn.addEventListener("click", async () => {
 });
 
 const getWeather = async (lat, lon) => {
-  showOrHideContent("block", "none", "none");
   const { res, data } = await fetchData(
     `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`
   );
-  showOrHideContent("none", "flex", "none");
 
   if (res.status === 200) {
     showOrHideContent("none", "flex", "none");
