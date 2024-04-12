@@ -120,6 +120,9 @@ span {
     animation: spin 2s linear infinite;
     margin: 40px 0px;
 }
+#weather-cards-div{
+    display: flex;
+}
 
 @keyframes spin {
     0% {
