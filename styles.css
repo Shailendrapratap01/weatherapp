@@ -1,38 +1,43 @@
-*{
+* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     color: #293251;
 }
-body{
+
+body {
     background-color: #293251;
 }
-#main-container{
+
+#main-container {
     padding: 100px 30px;
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
-#search-bar{
+
+#search-bar {
     display: flex;
     width: 30%;
     text-align: center;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
     overflow: hidden;
 }
-#search-bar input{
+
+#search-bar input {
     width: 100%;
     font-size: 1.2rem;
-    padding: 0px 10px ;
+    padding: 0px 10px;
     border: none;
 }
-#search-bar button{
+
+#search-bar button {
     width: 100%;
     font-size: 1rem;
     padding: 10px 15px;
@@ -40,7 +45,8 @@ body{
     background-color: blue;
     border: none;
 }
-#weather-container{
+
+#weather-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,16 +54,18 @@ body{
     background-color: white;
     margin: 40px auto;
     width: 30%;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     overflow: hidden;
 }
+
 #heading {
     font-size: 1.3rem;
     padding: 10px;
     width: 100%;
     text-align: center;
 }
-#weather-info{
+
+#weather-info {
     width: 100%;
     display: none;
     flex-direction: column;
@@ -67,17 +75,21 @@ body{
     padding-bottom: 10px;
     background-color: #e9f3ff;
 }
-#temperature{
+
+#temperature {
     font-size: 3rem;
     font-weight: 600;
 }
-span{
+
+span {
     font-size: 1.7rem;
 }
-#weather-desc{
+
+#weather-desc {
     font-size: 1.5rem;
 }
-#not-found{
+
+#not-found {
     padding: 20px;
     margin-bottom: 40px;
     width: 100%;
@@ -87,94 +99,121 @@ span{
     align-items: center;
     background-color: #e9f3ff;
 }
-#not-found i{
+
+#not-found i {
     font-size: 4rem;
 }
-#not-found p{
+
+#not-found p {
     font-size: 1.5rem;
 }
+
 #loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #3498db;
     width: 100px;
     height: 100px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
     animation: spin 2s linear infinite;
     margin: 40px 0px;
 }
-  
+
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 768px){
-    #main-container{
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    #main-container {
         padding: 40px 10px;
     }
-    #weather-container{
+
+    #weather-container {
         width: 95%;
     }
-    #search-bar{
+
+    #search-bar {
         width: 95%;
     }
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    #weather-container{
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #weather-container {
         width: 50%;
     }
-    #search-bar{
+
+    #search-bar {
         width: 50%;
     }
 }
-@media only screen and (min-width: 2560px){
-    #temperature{
+
+@media only screen and (min-width: 2560px) {
+    #temperature {
         font-size: 5rem;
         font-weight: 600;
     }
-    span{
+
+    span {
         font-size: 3rem;
     }
-    #weather-container{
+
+    #weather-container {
         margin-top: 50px;
     }
-    #weather-desc{
+
+    #weather-desc {
         font-size: 3rem;
     }
-    #location{
+
+    #location {
         font-size: 2rem;
     }
-    #not-found i{
+
+    #not-found i {
         font-size: 6rem;
     }
-    #not-found p{
+
+    #not-found p {
         font-size: 2rem;
     }
-    #weather-info{
+
+    #weather-info {
         gap: 30px;
         padding-bottom: 40px;
         margin-bottom: 90px;
     }
-    #weather-img{
+
+    #weather-img {
         width: 40%;
     }
-    #weather-img img{
+
+    #weather-img img {
         width: 100%;
     }
+
     #heading {
         font-size: 2.5rem;
         padding: 20px;
     }
-    #search-bar input{
+
+    #search-bar input {
         font-size: 2rem;
-        padding: 0px 10px ;
+        padding: 0px 10px;
     }
-    #search-bar button{
+
+    #search-bar button {
         font-size: 2.3rem;
         padding: 15px 25px;
     }
-    #not-found{
+
+    #not-found {
         margin-bottom: 80px;
     }
 }
