@@ -47,7 +47,7 @@ body {
 #search-bar input {
     width: 100%;
     font-size: 1.2rem;
-    padding: 0px 10px;
+    padding: 0px 15px;
     border: none;
 }
 
@@ -134,7 +134,10 @@ span {
     animation: spin 2s linear infinite;
     margin: 40px 0px;
 }
-
+#error{
+    color: red; 
+    display: none;
+}
 .forecast-heading{
     font-size: 1.5rem;
     padding: 8px 20px;
@@ -187,10 +190,19 @@ span {
         padding: 40px 10px;
     }
 
+    .forecast-heading{
+        font-size: 1.2rem;
+        padding: 8px 15px;
+    }
     #weather-container {
         width: 100%;
     }
-
+    .weatherForecastDiv{
+        font-size: .7rem;
+    }
+    .weather-forecast-img img{
+        width: 30px;
+    }
     #search-bar {
         width: 100%;
     }
@@ -214,7 +226,7 @@ span {
         width: 60%;
     }
     .weather-forecast-imgandtemp{
-        width: 60%;
+        width: 45%;
     }
 }
 
@@ -225,6 +237,41 @@ span {
 
     #search-bar {
         width: 50%;
+    }
+    #right-container{
+        width: 80%;
+    }
+    #left-container{
+        width: 80%;
+    }
+    .weather-forecast-div{
+        padding: 0px 10px;
+        justify-content: space-around;
+    }
+    #weather-cards-div{
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    #weather-container {
+        width: 50%;
+    }
+
+    #search-bar {
+        width: 50%;
+    }
+    #right-container{
+        width: 80%;
+    }
+    #left-container{
+        width: 50%;
+    }
+    .weather-forecast-div{
+        padding: 0px 10px;
+        justify-content: space-around;
+    }
+    #weather-cards-div{
+        width: 100%;
     }
 }
 

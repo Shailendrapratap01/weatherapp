@@ -10,6 +10,7 @@ const loader = document.getElementById("loader");
 const bodyContainer = document.getElementById("main-container");
 const weatherForecastDiv = document.getElementById("weather-cards-div");
 const weatherContainer = document.getElementById("#weather-container");
+const Valerror=document.getElementById('error')
 
 const apiKey = "82005d27a116c2880c8f0fcb866998a0";
 let city;
@@ -56,6 +57,7 @@ const getCoordinates = async (city) => {
     showOrHideContent("none", "none", "flex");
     weatherForecastDiv.style.display="none";
     bodyContainer.style.backgroundImage = "url(./images/default.png)";
+    Valerror.style.display="none"
   }
 };
 
@@ -63,8 +65,11 @@ searchBtn.addEventListener("click", async () => {
     
   showOrHideContent("block", "none", "none");
   weatherForecastDiv.style.display="none";
-  if (searchInput.value === "") {
+  if ((searchInput.value).trim() === "") {
+    Valerror.style.display="block"
     showOrHideContent("none", "none", "flex");
+    searchInput.value = "";
+    return;
   } else {
     city = searchInput.value;
     searchInput.value = "";
@@ -85,6 +90,7 @@ const getWeather = async (lat, lon) => {
 
   if (res.status === 200) {
     showOrHideContent("none", "flex", "none");
+    Valerror.style.display="none"
 
     const temp = Math.floor(data.main.temp);
     temperature.innerText = temp + "° c";
@@ -102,6 +108,7 @@ const getWeather = async (lat, lon) => {
     showOrHideContent("none", "none", "flex");
     bodyContainer.style.backgroundImage = "url(./images/default.png)";
     weatherForecastDiv.style.display="none";
+    Valerror.style.display="none"
   }
 };
 
