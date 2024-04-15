@@ -11,38 +11,41 @@
 
 <body>
     <div id="main-container">
-        <div id="search-bar">
-            <input id="input" type="text" placeholder="enter city name" />
-            <div id="search-btn">
-                <button>Search</button>
+        <div id="right-container">
+            <div id="search-bar">
+                <input id="input" type="text" placeholder="enter city name" />
+                <div id="search-btn">
+                    <button>Search</button>
+                </div>
+            </div>
+            <div id="weather-container">
+                <div id="heading">
+                    <h3>Weather</h3>
+                </div>
+                <div id="weather-info">
+                    <div id="weather-img">
+                        <img id="weather-icon" src="" alt="" />
+                    </div>
+                    <div id="temp-div">
+                        <p id="temperature"></p>
+                    </div>
+                    <div>
+                        <p id="weather-desc"></p>
+                    </div>
+                    <div>
+                        <p id="location"></p>
+                    </div>
+                </div>
+                <div id="loader"></div>
+                <div id="not-found">
+                    <i id="icon" class="fa-regular fa-face-sad-tear"></i>
+                    <p id="error-msg">INVALID CITY NAME</p>
+                </div>
             </div>
         </div>
-        <div id="weather-container">
-            <div id="heading">
-                <h3>Weather</h3>
+        <div id="left-container">
+            <div id="weather-cards-div">
             </div>
-            <div id="weather-info">
-                <div id="weather-img">
-                    <img id="weather-icon" src="" alt="" />
-                </div>
-                <div id="temp-div">
-                    <p id="temperature"></p>
-                </div>
-                <div>
-                    <p id="weather-desc"></p>
-                </div>
-                <div>
-                    <p id="location"></p>
-                </div>
-            </div>
-            <div id="loader"></div>
-            <div id="not-found">
-                <i id="icon" class="fa-regular fa-face-sad-tear"></i>
-                <p id="error-msg">INVALID CITY NAME</p>
-            </div>
-        </div>
-        <div id="weather-cards-div">
-            
         </div>
     </div>
     <script src="https://kit.fontawesome.com/9dc74ed257.js" crossorigin="anonymous"></script>

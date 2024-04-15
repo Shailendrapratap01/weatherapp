@@ -9,10 +9,12 @@ const error = document.getElementById("not-found");
 const loader = document.getElementById("loader");
 const bodyContainer = document.getElementById("main-container");
 const weatherForecastDiv = document.getElementById("weather-cards-div");
-
+const weatherContainer = document.getElementById("#weather-container");
 
 const apiKey = "82005d27a116c2880c8f0fcb866998a0";
 let city;
+const dayArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const monthArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 window.addEventListener("load", async () => {
   navigator.geolocation.getCurrentPosition(getLocation, failedToGetLocation);
@@ -22,10 +24,12 @@ const getLocation = async (location) => {
   const currentLatitude = location.coords.latitude;
   const currentLongitude = location.coords.longitude;
   getWeather(currentLatitude, currentLongitude);
+  getForcastWeather(currentLatitude, currentLongitude);
 };
 
 const failedToGetLocation = () => {
   showOrHideContent("none", "none", "flex");
+  weatherForecastDiv.style.display="none";
 };
 
 const fetchData = async (url) => {
@@ -50,12 +54,15 @@ const getCoordinates = async (city) => {
     return { lat, lon };
   } else {
     showOrHideContent("none", "none", "flex");
+    weatherForecastDiv.style.display="none";
     bodyContainer.style.backgroundImage = "url(./images/default.png)";
   }
 };
 
 searchBtn.addEventListener("click", async () => {
+    
   showOrHideContent("block", "none", "none");
+  weatherForecastDiv.style.display="none";
   if (searchInput.value === "") {
     showOrHideContent("none", "none", "flex");
   } else {
@@ -66,7 +73,7 @@ searchBtn.addEventListener("click", async () => {
     const lon = getCoordinatesData?.lon;
     if (lat && lon) {
       getWeather(lat, lon);
-	  getForcastWeather(lat, lon);
+      getForcastWeather(lat, lon);
     }
   }
 });
@@ -90,47 +97,55 @@ const getWeather = async (lat, lon) => {
     const imgId = data.weather[0].description;
     const imgName = imgId.split(" ").join("_");
     bodyContainer.style.backgroundImage = `url(./images/${imgName}.jpg)`;
+    weatherForecastDiv.style.display="block";
   } else {
     showOrHideContent("none", "none", "flex");
     bodyContainer.style.backgroundImage = "url(./images/default.png)";
+    weatherForecastDiv.style.display="none";
   }
 };
 
-const createForecastDiv = (p1,p2,p3,p4) => {
+const createForecastDiv = (date,imgSrc,temp,desc) => {
     return `<div class="weather-forecast-div">
                 <div class="weather-forecast-date">
-                    <p>${p1}</p>
+                    <p>${date}</p>
                 </div>
                 <div class="weather-forecast-descandtemp">
                     <div class="weather-forecast-imgandtemp">
                         <div class="weather-forecast-img">
-                            <img src="${p2}" alt="">
+                            <img src="images/${imgSrc}.png" alt="">
                         </div>
-                        <div class="weather-forecast-temp">
-                            <p>${p3}</p>
-                        </div>
+                        <p class="weather-forecast-temp">${temp}° c</p>
                     </div>
-                    <div class="weather-forecast-desc">
-                        <p>${p4}</p>
-                    </div>
+                    <p class="weather-forecast-desc">${desc}</p>
                 </div>
-            </div>`
+            </div>`;
 }
 
 const getForcastWeather = async (lat, lon) => {
-    // console.log(apiKey)
-    let card;
+    let card=`<p class="forecast-heading">4-day forecast</p>`;
     let n=8;
     const { res, data } = await fetchData(`https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`);
     for(let i=0; i<4; i++){
-        console.log(data)
-        const temp = data.list[n].main.temp;
-        const date = data.list[n].dt;
-        const forecastIcon = data.list[n].weather[0].icon;
+        const temp = Math.floor(data.list[n].main.temp);
+        
+        const unixDate = data.list[n].dt * 1000;
+        const dateObj = new Date(unixDate);
+        const day = dayArr[dateObj.getDay()];
+        const month = monthArr[dateObj.getMonth()];
+        const date = dateObj.getDate();
+        const fullDate = `${day}, ${month} ${date}`;
+
+        // const city = `${data.city.name}, ${data.city.country}`;
+
+        const forecastImg = data.list[n].weather[0].icon;
         const forecastDesc = data.list[n].weather[0].description;
+
         n+=8;
-        card += createForecastDiv(temp, date, forecastIcon, forecastDesc);
+        card += createForecastDiv(fullDate, forecastImg, temp, forecastDesc);
+        console.log(fullDate, forecastImg, temp, forecastDesc)
     }
-    console.log(card)
-    weatherForecastDiv.innerHTML=card;
+    console.log(data)
+    weatherForecastDiv.innerHTML =card;
+    weatherForecastDiv.classList.add("weatherForecastDiv")
 }
