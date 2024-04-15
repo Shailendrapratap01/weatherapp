@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Weather App</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="main-container">
-        <div id="right-container">
-            <div id="search-bar">
-                <input id="input" type="text" placeholder="Enter City Name" />
-                <div id="search-btn">
-                    <button>Search</button>
-                </div>
-            </div>
-            <p id="error">Please Enter Valid City Name</p>
-            <div id="weather-container">
-                <div id="heading">
-                    <h3>Weather</h3>
-                </div>
-                <div id="weather-info">
-                    <div id="weather-img">
-                        <img id="weather-icon" src="" alt="" />
-                    </div>
-                    <div id="temp-div">
-                        <p id="temperature"></p>
-                    </div>
-                    <div>
-                        <p id="weather-desc"></p>
-                    </div>
-                    <div>
-                        <p id="location"></p>
-                    </div>
-                </div>
-                <div id="loader"></div>
-                <div id="not-found">
-                    <i id="icon" class="fa-regular fa-face-sad-tear"></i>
-                    <p id="error-msg">INVALID CITY NAME</p>
-                </div>
-            </div>
+      <div id="right-container">
+        <div id="search-bar">
+          <input id="input" type="text" placeholder="Enter City Name" />
+          <div id="search-btn">
+            <button>Search</button>
+          </div>
         </div>
-        <div id="left-container">
-            <div id="weather-cards-div">
+        <p id="error">Please Enter Valid City Name</p>
+        <div id="weather-container">
+          <div id="heading">
+            <h3>Weather</h3>
+          </div>
+          <div id="weather-info">
+            <div id="weather-img">
+              <img id="weather-icon" src="" alt="" />
             </div>
+            <div id="temp-div">
+              <p id="temperature"></p>
+            </div>
+            <div>
+              <p id="weather-desc"></p>
+            </div>
+            <div>
+              <p id="location"></p>
+            </div>
+          </div>
+          <div id="loader"></div>
+          <div id="not-found">
+            <i id="icon" class="fa-regular fa-face-sad-tear"></i>
+            <p id="error-msg">INVALID CITY NAME</p>
+          </div>
         </div>
+      </div>
+      <div id="left-container">
+        <div id="weather-cards-div"></div>
+      </div>
     </div>
-    <script src="https://kit.fontawesome.com/9dc74ed257.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/9dc74ed257.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
