@@ -119,7 +119,7 @@ span {
     font-size: 4rem;
 }
 
-#not-found p {
+#not-found p{
     font-size: 1.5rem;
 }
 
@@ -188,11 +188,33 @@ span {
     }
 
     #weather-container {
-        width: 95%;
+        width: 100%;
     }
 
     #search-bar {
-        width: 95%;
+        width: 100%;
+    }
+    #right-container{
+        width: 100%;
+    }
+    #left-container{
+        width: 100%;
+    }
+    .weather-forecast-div{
+        padding: 0px 10px;
+        justify-content: space-around;
+    }
+    #weather-cards-div{
+        width: 100%;
+    }
+    .weather-forecast-date{
+        width: 35%;
+    }
+    .weather-forecast-descandtemp{
+        width: 60%;
+    }
+    .weather-forecast-imgandtemp{
+        width: 60%;
     }
 }
 

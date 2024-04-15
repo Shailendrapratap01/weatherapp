@@ -136,8 +136,6 @@ const getForcastWeather = async (lat, lon) => {
         const date = dateObj.getDate();
         const fullDate = `${day}, ${month} ${date}`;
 
-        // const city = `${data.city.name}, ${data.city.country}`;
-
         const forecastImg = data.list[n].weather[0].icon;
         const forecastDesc = data.list[n].weather[0].description;
 
@@ -146,6 +144,6 @@ const getForcastWeather = async (lat, lon) => {
         console.log(fullDate, forecastImg, temp, forecastDesc)
     }
     console.log(data)
-    weatherForecastDiv.innerHTML =card;
     weatherForecastDiv.classList.add("weatherForecastDiv")
+    weatherForecastDiv.innerHTML =card;
 }
